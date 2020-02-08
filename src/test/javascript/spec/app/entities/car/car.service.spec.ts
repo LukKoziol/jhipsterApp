@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(CarService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Car(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Car(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -56,7 +56,8 @@ describe('Service Tests', () => {
           {
             model: 'BBBBBB',
             engine: 'BBBBBB',
-            serialNo: 'BBBBBB'
+            nrRe: 'BBBBBB',
+            vin: 'BBBBBB'
           },
           elemDefault
         );
@@ -75,7 +76,8 @@ describe('Service Tests', () => {
           {
             model: 'BBBBBB',
             engine: 'BBBBBB',
-            serialNo: 'BBBBBB'
+            nrRe: 'BBBBBB',
+            vin: 'BBBBBB'
           },
           elemDefault
         );

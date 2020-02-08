@@ -33,8 +33,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = JhipsterApp.class)
 public class DriverResourceIT {
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
+    private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
 
     private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
@@ -84,7 +84,7 @@ public class DriverResourceIT {
      */
     public static Driver createEntity(EntityManager em) {
         Driver driver = new Driver()
-            .name(DEFAULT_NAME)
+            .firstName(DEFAULT_FIRST_NAME)
             .lastName(DEFAULT_LAST_NAME)
             .mileage(DEFAULT_MILEAGE);
         return driver;
@@ -97,7 +97,7 @@ public class DriverResourceIT {
      */
     public static Driver createUpdatedEntity(EntityManager em) {
         Driver driver = new Driver()
-            .name(UPDATED_NAME)
+            .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .mileage(UPDATED_MILEAGE);
         return driver;
@@ -123,7 +123,7 @@ public class DriverResourceIT {
         List<Driver> driverList = driverRepository.findAll();
         assertThat(driverList).hasSize(databaseSizeBeforeCreate + 1);
         Driver testDriver = driverList.get(driverList.size() - 1);
-        assertThat(testDriver.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testDriver.getFirstName()).isEqualTo(DEFAULT_FIRST_NAME);
         assertThat(testDriver.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
         assertThat(testDriver.getMileage()).isEqualTo(DEFAULT_MILEAGE);
     }
@@ -159,7 +159,7 @@ public class DriverResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(driver.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
             .andExpect(jsonPath("$.[*].mileage").value(hasItem(DEFAULT_MILEAGE)));
     }
@@ -175,7 +175,7 @@ public class DriverResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(driver.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
+            .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
             .andExpect(jsonPath("$.mileage").value(DEFAULT_MILEAGE));
     }
@@ -201,7 +201,7 @@ public class DriverResourceIT {
         // Disconnect from session so that the updates on updatedDriver are not directly saved in db
         em.detach(updatedDriver);
         updatedDriver
-            .name(UPDATED_NAME)
+            .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .mileage(UPDATED_MILEAGE);
 
@@ -214,7 +214,7 @@ public class DriverResourceIT {
         List<Driver> driverList = driverRepository.findAll();
         assertThat(driverList).hasSize(databaseSizeBeforeUpdate);
         Driver testDriver = driverList.get(driverList.size() - 1);
-        assertThat(testDriver.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testDriver.getFirstName()).isEqualTo(UPDATED_FIRST_NAME);
         assertThat(testDriver.getLastName()).isEqualTo(UPDATED_LAST_NAME);
         assertThat(testDriver.getMileage()).isEqualTo(UPDATED_MILEAGE);
     }

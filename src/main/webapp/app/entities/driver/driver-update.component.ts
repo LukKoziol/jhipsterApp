@@ -17,7 +17,7 @@ export class DriverUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    name: [],
+    firstName: [],
     lastName: [],
     mileage: []
   });
@@ -33,7 +33,7 @@ export class DriverUpdateComponent implements OnInit {
   updateForm(driver: IDriver): void {
     this.editForm.patchValue({
       id: driver.id,
-      name: driver.name,
+      firstName: driver.firstName,
       lastName: driver.lastName,
       mileage: driver.mileage
     });
@@ -57,7 +57,7 @@ export class DriverUpdateComponent implements OnInit {
     return {
       ...new Driver(),
       id: this.editForm.get(['id'])!.value,
-      name: this.editForm.get(['name'])!.value,
+      firstName: this.editForm.get(['firstName'])!.value,
       lastName: this.editForm.get(['lastName'])!.value,
       mileage: this.editForm.get(['mileage'])!.value
     };

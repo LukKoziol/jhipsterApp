@@ -2,7 +2,7 @@
     "name": "Driver",
     "fields": [
         {
-            "fieldName": "name",
+            "fieldName": "firstName",
             "fieldType": "String"
         },
         {

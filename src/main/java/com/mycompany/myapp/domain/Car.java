@@ -27,8 +27,11 @@ public class Car implements Serializable {
     @Column(name = "engine")
     private String engine;
 
-    @Column(name = "serial_no")
-    private String serialNo;
+    @Column(name = "nr_re")
+    private String nrRe;
+
+    @Column(name = "vin")
+    private String vin;
 
     @ManyToMany
     @JoinTable(name = "car_driver",
@@ -71,17 +74,30 @@ public class Car implements Serializable {
         this.engine = engine;
     }
 
-    public String getSerialNo() {
-        return serialNo;
+    public String getNrRe() {
+        return nrRe;
     }
 
-    public Car serialNo(String serialNo) {
-        this.serialNo = serialNo;
+    public Car nrRe(String nrRe) {
+        this.nrRe = nrRe;
         return this;
     }
 
-    public void setSerialNo(String serialNo) {
-        this.serialNo = serialNo;
+    public void setNrRe(String nrRe) {
+        this.nrRe = nrRe;
+    }
+
+    public String getVin() {
+        return vin;
+    }
+
+    public Car vin(String vin) {
+        this.vin = vin;
+        return this;
+    }
+
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     public Set<Driver> getDrivers() {
@@ -132,7 +148,8 @@ public class Car implements Serializable {
             "id=" + getId() +
             ", model='" + getModel() + "'" +
             ", engine='" + getEngine() + "'" +
-            ", serialNo='" + getSerialNo() + "'" +
+            ", nrRe='" + getNrRe() + "'" +
+            ", vin='" + getVin() + "'" +
             "}";
     }
 }

@@ -16,7 +16,7 @@
       "detail": {
         "title": "Driver"
       },
-      "name": "Name",
+      "firstName": "First Name",
       "lastName": "Last Name",
       "mileage": "Mileage",
       "car": "Car"

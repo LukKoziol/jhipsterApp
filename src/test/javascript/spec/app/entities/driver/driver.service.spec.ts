@@ -54,7 +54,7 @@ describe('Service Tests', () => {
       it('should update a Driver', () => {
         const returnedFromService = Object.assign(
           {
-            name: 'BBBBBB',
+            firstName: 'BBBBBB',
             lastName: 'BBBBBB',
             mileage: 1
           },
@@ -73,7 +73,7 @@ describe('Service Tests', () => {
       it('should return a list of Driver', () => {
         const returnedFromService = Object.assign(
           {
-            name: 'BBBBBB',
+            firstName: 'BBBBBB',
             lastName: 'BBBBBB',
             mileage: 1
           },
