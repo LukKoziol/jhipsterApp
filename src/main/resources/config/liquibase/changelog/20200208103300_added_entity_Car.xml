@@ -21,7 +21,10 @@
             <column name="engine" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="serial_no" type="varchar(255)">
+            <column name="nr_re" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="vin" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
@@ -60,7 +63,8 @@
             <column name="id" type="numeric"/>
             <column name="model" type="string"/>
             <column name="engine" type="string"/>
-            <column name="serial_no" type="string"/>
+            <column name="nr_re" type="string"/>
+            <column name="vin" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

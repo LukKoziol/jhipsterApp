@@ -22,8 +22,8 @@ public class Driver implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
@@ -44,17 +44,17 @@ public class Driver implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Driver name(String name) {
-        this.name = name;
+    public Driver firstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -129,7 +129,7 @@ public class Driver implements Serializable {
     public String toString() {
         return "Driver{" +
             "id=" + getId() +
-            ", name='" + getName() + "'" +
+            ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", mileage=" + getMileage() +
             "}";

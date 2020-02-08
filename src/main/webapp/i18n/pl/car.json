@@ -18,7 +18,8 @@
       },
       "model": "Model",
       "engine": "Engine",
-      "serialNo": "Serial No",
+      "nrRe": "Nr Re",
+      "vin": "Vin",
       "driver": "Driver"
     }
   }

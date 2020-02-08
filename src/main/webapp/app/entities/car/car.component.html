@@ -25,7 +25,8 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="jhipsterApp.car.model">Model</span></th>
                     <th scope="col" ><span jhiTranslate="jhipsterApp.car.engine">Engine</span></th>
-                    <th scope="col" ><span jhiTranslate="jhipsterApp.car.serialNo">Serial No</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterApp.car.nrRe">Nr Re</span></th>
+                    <th scope="col" ><span jhiTranslate="jhipsterApp.car.vin">Vin</span></th>
                     <th scope="col" ><span jhiTranslate="jhipsterApp.car.driver">Driver</span></th>
                     <th scope="col"></th>
                 </tr>
@@ -35,7 +36,8 @@
                     <td><a [routerLink]="['/car', car.id, 'view']">{{ car.id }}</a></td>
                     <td>{{ car.model }}</td>
                     <td>{{ car.engine }}</td>
-                    <td>{{ car.serialNo }}</td>
+                    <td>{{ car.nrRe }}</td>
+                    <td>{{ car.vin }}</td>
                     <td>
                         <span *ngFor="let driver of car.drivers; let last = last">
                             <a class="form-control-static" [routerLink]="['/driver', driver?.id, 'view']">{{ driver.id }}</a>{{ last ? '' : ', ' }}

@@ -22,7 +22,8 @@ export class CarUpdateComponent implements OnInit {
     id: [],
     model: [],
     engine: [],
-    serialNo: [],
+    nrRe: [],
+    vin: [],
     drivers: []
   });
 
@@ -46,7 +47,8 @@ export class CarUpdateComponent implements OnInit {
       id: car.id,
       model: car.model,
       engine: car.engine,
-      serialNo: car.serialNo,
+      nrRe: car.nrRe,
+      vin: car.vin,
       drivers: car.drivers
     });
   }
@@ -71,7 +73,8 @@ export class CarUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       model: this.editForm.get(['model'])!.value,
       engine: this.editForm.get(['engine'])!.value,
-      serialNo: this.editForm.get(['serialNo'])!.value,
+      nrRe: this.editForm.get(['nrRe'])!.value,
+      vin: this.editForm.get(['vin'])!.value,
       drivers: this.editForm.get(['drivers'])!.value
     };
   }

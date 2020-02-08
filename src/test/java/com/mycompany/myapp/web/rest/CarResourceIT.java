@@ -44,8 +44,11 @@ public class CarResourceIT {
     private static final String DEFAULT_ENGINE = "AAAAAAAAAA";
     private static final String UPDATED_ENGINE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_SERIAL_NO = "AAAAAAAAAA";
-    private static final String UPDATED_SERIAL_NO = "BBBBBBBBBB";
+    private static final String DEFAULT_NR_RE = "AAAAAAAAAA";
+    private static final String UPDATED_NR_RE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_VIN = "AAAAAAAAAA";
+    private static final String UPDATED_VIN = "BBBBBBBBBB";
 
     @Autowired
     private CarRepository carRepository;
@@ -94,7 +97,8 @@ public class CarResourceIT {
         Car car = new Car()
             .model(DEFAULT_MODEL)
             .engine(DEFAULT_ENGINE)
-            .serialNo(DEFAULT_SERIAL_NO);
+            .nrRe(DEFAULT_NR_RE)
+            .vin(DEFAULT_VIN);
         return car;
     }
     /**
@@ -107,7 +111,8 @@ public class CarResourceIT {
         Car car = new Car()
             .model(UPDATED_MODEL)
             .engine(UPDATED_ENGINE)
-            .serialNo(UPDATED_SERIAL_NO);
+            .nrRe(UPDATED_NR_RE)
+            .vin(UPDATED_VIN);
         return car;
     }
 
@@ -133,7 +138,8 @@ public class CarResourceIT {
         Car testCar = carList.get(carList.size() - 1);
         assertThat(testCar.getModel()).isEqualTo(DEFAULT_MODEL);
         assertThat(testCar.getEngine()).isEqualTo(DEFAULT_ENGINE);
-        assertThat(testCar.getSerialNo()).isEqualTo(DEFAULT_SERIAL_NO);
+        assertThat(testCar.getNrRe()).isEqualTo(DEFAULT_NR_RE);
+        assertThat(testCar.getVin()).isEqualTo(DEFAULT_VIN);
     }
 
     @Test
@@ -169,7 +175,8 @@ public class CarResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(car.getId().intValue())))
             .andExpect(jsonPath("$.[*].model").value(hasItem(DEFAULT_MODEL)))
             .andExpect(jsonPath("$.[*].engine").value(hasItem(DEFAULT_ENGINE)))
-            .andExpect(jsonPath("$.[*].serialNo").value(hasItem(DEFAULT_SERIAL_NO)));
+            .andExpect(jsonPath("$.[*].nrRe").value(hasItem(DEFAULT_NR_RE)))
+            .andExpect(jsonPath("$.[*].vin").value(hasItem(DEFAULT_VIN)));
     }
     
     @SuppressWarnings({"unchecked"})
@@ -218,7 +225,8 @@ public class CarResourceIT {
             .andExpect(jsonPath("$.id").value(car.getId().intValue()))
             .andExpect(jsonPath("$.model").value(DEFAULT_MODEL))
             .andExpect(jsonPath("$.engine").value(DEFAULT_ENGINE))
-            .andExpect(jsonPath("$.serialNo").value(DEFAULT_SERIAL_NO));
+            .andExpect(jsonPath("$.nrRe").value(DEFAULT_NR_RE))
+            .andExpect(jsonPath("$.vin").value(DEFAULT_VIN));
     }
 
     @Test
@@ -244,7 +252,8 @@ public class CarResourceIT {
         updatedCar
             .model(UPDATED_MODEL)
             .engine(UPDATED_ENGINE)
-            .serialNo(UPDATED_SERIAL_NO);
+            .nrRe(UPDATED_NR_RE)
+            .vin(UPDATED_VIN);
 
         restCarMockMvc.perform(put("/api/cars")
             .contentType(TestUtil.APPLICATION_JSON)
@@ -257,7 +266,8 @@ public class CarResourceIT {
         Car testCar = carList.get(carList.size() - 1);
         assertThat(testCar.getModel()).isEqualTo(UPDATED_MODEL);
         assertThat(testCar.getEngine()).isEqualTo(UPDATED_ENGINE);
-        assertThat(testCar.getSerialNo()).isEqualTo(UPDATED_SERIAL_NO);
+        assertThat(testCar.getNrRe()).isEqualTo(UPDATED_NR_RE);
+        assertThat(testCar.getVin()).isEqualTo(UPDATED_VIN);
     }
 
     @Test
